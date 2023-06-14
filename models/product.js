@@ -11,9 +11,33 @@ const productSchema = mongoose.Schema(
             require:true,
             default:0,
         },
+        newPrice:{
+            type:Number,
+            required:false
+        },
+        salePercentage:{
+            type:Number,
+            required:false,
+        },
         price:{
             type:Number,
             required: true,
+        },
+        quantity:{
+            type:String,
+            required:true,
+        },
+        bestSeller:{
+            type:Boolean,
+            default:false
+        },
+        sale:{
+            type:Boolean,
+            default:false
+        },
+        category:{
+            type:String,
+            required:true
         },
         img:{
             type:String,
