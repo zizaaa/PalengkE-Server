@@ -1,30 +1,26 @@
 const mongoose = require('mongoose');
 
-const usersSchema = mongoose.Schema(
+const reviewsSchecma = mongoose.Schema(
     {
-        firstName:{
+        name:{
             type:String,
             required:true,
         },
-        lastName:{
+        title:{
             type:String,
             required:true,
         },
-        email:{
+        message:{
             type:String,
-            require:true,
+            required:true,
         },
-        number:{
+        stars:{
             type:Number,
             required: true,
         },
-        address:{
+        date:{
             type:String,
-            required:false,
-        },
-        cart:{
-            type:Array,
-            required:false,
+            required:true,
         }
     },
     {
@@ -32,6 +28,6 @@ const usersSchema = mongoose.Schema(
     }
 )
 
-const Users = mongoose.model('Users',usersSchema);
+const overAllReviews = mongoose.model('overAllReviews',reviewsSchecma)
 
-module.exports = Users
+module.exports = overAllReviews

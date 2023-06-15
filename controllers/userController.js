@@ -2,7 +2,7 @@ const Users = require('../models/users');
 
     const getMethod=async(req,res)=>{
         try{
-            const users = await Users.find({});
+            const users = await Users.find();
             res.status(200).json(users)
         }catch(error){
             res.status(500).json({message:error.message})
