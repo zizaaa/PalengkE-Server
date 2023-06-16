@@ -18,6 +18,10 @@ const usersSchema = mongoose.Schema(
             type:String,
             require:true,
         },
+        password:{
+            type:String,
+            required:true
+        },
         number:{
             type:Number,
             required: true,
