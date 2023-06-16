@@ -41,6 +41,10 @@ const productSchema = mongoose.Schema(
         usersProductReviews:{
             type:Array,
             required:false
+        },
+        productSold:{
+            type:Array,
+            required:false
         }
     },
     {
