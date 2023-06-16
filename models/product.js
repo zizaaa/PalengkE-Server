@@ -43,7 +43,7 @@ const productSchema = mongoose.Schema(
             required:false
         },
         productSold:{
-            type:Array,
+            type:Number,
             required:false
         }
     },
