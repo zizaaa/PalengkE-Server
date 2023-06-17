@@ -30,6 +30,34 @@ const usersSchema = mongoose.Schema(
             type:String,
             required:false,
         },
+        memberShip:{
+            type:String,
+            required:false
+        },
+        balance:{
+            type:Number,
+            required:false
+        },
+        vouchers:{
+            type:Array,
+            required:false
+        },
+        payLater:{
+            type:Number,
+            required:false
+        },
+        toShip:{
+            type:Array,
+            required:false,
+        },
+        toReceive:{
+            type:Array,
+            required:false,
+        },
+        toReview:{
+            type:Array,
+            required:false,
+        },
         cart:{
             type:Array,
             required:false,

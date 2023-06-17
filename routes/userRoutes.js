@@ -1,5 +1,5 @@
 const express = require('express')
-const {getMethod,postMethod} = require('../controllers/userController')
+const {getMethod,postMethod,putMethod} = require('../controllers/userController')
 const router = express.Router()
 
 //user routes
@@ -7,5 +7,7 @@ const router = express.Router()
         router.get('/users',getMethod)
     //add user
         router.post('/users',postMethod)
+    //edit user
+        router.put('/user/:id',putMethod)
 
 module.exports = router
