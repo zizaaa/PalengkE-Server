@@ -28,7 +28,7 @@ const usersSchema = mongoose.Schema(
         },
         address:{
             type:String,
-            required:false,
+            required:true,
         },
         memberShip:{
             type:String,
@@ -61,6 +61,10 @@ const usersSchema = mongoose.Schema(
         cart:{
             type:Array,
             required:false,
+        },
+        deliveryInfo:{
+            type:Object,
+            required:false
         }
     },
     {

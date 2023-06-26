@@ -53,6 +53,10 @@ const productSchema = mongoose.Schema(
         productSold:{
             type:Number,
             required:false
+        },
+        stars:{
+            type:Number,
+            required:false,
         }
     },
     {
