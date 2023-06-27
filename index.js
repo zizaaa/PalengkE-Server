@@ -4,6 +4,7 @@ const cors = require('cors')
 const productRoutes = require('./routes/productsRoutes')
 const userRoutes = require('./routes/userRoutes')
 const overAllReviews = require('./routes/overAllReviews')
+const messages = require('./routes/messagesRoutes')
 require("dotenv").config();
 const app = express();
 
@@ -16,6 +17,7 @@ const app = express();
     app.use(productRoutes)
     app.use(userRoutes)
     app.use(overAllReviews)
+    app.use(messages)
 
     const PORT = process.env.PORT || 3000;
     mongoose.connect(process.env.MONGODB_CONNECT_URI,{
