@@ -18,12 +18,29 @@ const Users = require('../models/users');
         }
     }
 
-    //edit
-    const putMethod =async(req,res)=>{
+    //edit img
+    const putMethod = async(req,res)=>{
+        console.log(req.file)
+        try {
+            const {id} = req.params;
+            const user = await Users.findByIdAndUpdate({_id:id},{img:req.file.path},{new:true,runValidators:true})
+            console.log(user)
+                if(!user){
+                    return res.status(404).json({message: `cannot find any user with ID of ${id}`})
+                }
+            const updatedUser = await Users.findById(id)
+            res.status(200).json(updatedUser);
+        } catch (error) {
+            res.status(500).json({message:error.message})
+        }
+    }
+
+    //edit user
+    const putMethodUser = async(req,res)=>{
         try {
             const {id} = req.params;
             const user = await Users.findByIdAndUpdate({_id:id},req.body,{new:true,runValidators:true})
-
+            console.log(user)
                 if(!user){
                     return res.status(404).json({message: `cannot find any user with ID of ${id}`})
                 }
@@ -37,5 +54,6 @@ const Users = require('../models/users');
 module.exports = {
     getMethod,
     postMethod,
-    putMethod
+    putMethod,
+    putMethodUser
 }

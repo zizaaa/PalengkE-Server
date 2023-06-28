@@ -65,6 +65,10 @@ const usersSchema = mongoose.Schema(
         deliveryInfo:{
             type:Object,
             required:false
+        },
+        img:{
+            type:String,
+            required:false
         }
     },
     {
