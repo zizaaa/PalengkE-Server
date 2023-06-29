@@ -13,14 +13,12 @@ const Users = require('../models/users');
             const users = await Users.create(req.body)
             res.status(200).json(users)
         }catch(error){
-            console.log(error.message);
             res.status(500).json({message:error.message})
         }
     }
 
     //edit img
     const putMethod = async(req,res)=>{
-        console.log(req.file)
         try {
             const {id} = req.params;
             const user = await Users.findByIdAndUpdate({_id:id},{img:req.file.path},{new:true,runValidators:true})

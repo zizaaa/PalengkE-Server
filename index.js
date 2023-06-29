@@ -7,12 +7,13 @@ const overAllReviews = require('./routes/overAllReviews')
 const messages = require('./routes/messagesRoutes')
 require("dotenv").config();
 const app = express();
+const path = require('path');
 
 //Middleware
+    app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
     app.use(express.json())
     app.use(express.urlencoded({extended:false}))
     app.use(cors())
-    app.use('/uploads', express.static('uploads'));
 
 //ROutes
     app.use(productRoutes)
