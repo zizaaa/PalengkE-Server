@@ -5,6 +5,7 @@ const productRoutes = require('./routes/productsRoutes')
 const userRoutes = require('./routes/userRoutes')
 const overAllReviews = require('./routes/overAllReviews')
 const messages = require('./routes/messagesRoutes')
+const admin = require('./routes/adminRoutes')
 require("dotenv").config();
 const app = express();
 const path = require('path');
@@ -20,6 +21,7 @@ const path = require('path');
     app.use(userRoutes)
     app.use(overAllReviews)
     app.use(messages)
+    app.use(admin)
 
     const PORT = process.env.PORT || 3000;
     mongoose.connect(process.env.MONGODB_CONNECT_URI,{

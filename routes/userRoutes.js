@@ -1,5 +1,5 @@
 const express = require('express')
-const {getMethod,postMethod,putMethod,putMethodUser} = require('../controllers/userController')
+const {getMethod,postMethod,putMethod,putMethodUser,deleteMethodUser} = require('../controllers/userController')
 const router = express.Router()
 const multer  = require('multer')
 
@@ -26,5 +26,7 @@ const multer  = require('multer')
         router.put('/user/img/:id',upload.single('img'),putMethod)
     //edit user
         router.put('/user/:id',putMethodUser)
+
+        router.delete('/user/:id',deleteMethodUser)
 
 module.exports = router

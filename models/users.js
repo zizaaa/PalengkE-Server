@@ -34,7 +34,7 @@ const usersSchema = mongoose.Schema(
             type:String,
             required:false
         },
-        balance:{
+        coins:{
             type:Number,
             required:false
         },
@@ -42,21 +42,13 @@ const usersSchema = mongoose.Schema(
             type:Array,
             required:false
         },
-        payLater:{
-            type:Number,
+        orders:{
+            type:Array,
+            required:false,
+        },
+        purchaseHistory:{
+            type:Array,
             required:false
-        },
-        toShip:{
-            type:Array,
-            required:false,
-        },
-        toReceive:{
-            type:Array,
-            required:false,
-        },
-        toReview:{
-            type:Array,
-            required:false,
         },
         cart:{
             type:Array,
