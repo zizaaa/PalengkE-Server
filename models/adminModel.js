@@ -2,28 +2,12 @@ const mongoose = require('mongoose');
 
 const adminSchema = mongoose.Schema(
     {
-        income:{
+        grossIncome:{
             type:Number,
             required:false
         },
-        totalProducts:{
+        netIncome:{
             type:Number,
-            required:false
-        },
-        totalUsers:{
-            type:Number,
-            required:false
-        },
-        orders:{
-            type:Array,
-            required:false
-        },
-        activities:{
-            type:Array,
-            required:false
-        },
-        events:{
-            type:Array,
             required:false
         }
     },
