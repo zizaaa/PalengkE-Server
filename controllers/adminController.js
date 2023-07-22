@@ -1,6 +1,6 @@
 const Admin = require('../models/adminModel')
 
-    //add product
+    //add
     const postMethod = async(req,res)=>{
         try{
             const admin = await Admin.create(req.body)
@@ -11,7 +11,7 @@ const Admin = require('../models/adminModel')
         }
     }
 
-    //get all products
+    //get alls
     const getMethod = async(req,res)=>{
         try{
             const admin = await Admin.find();
@@ -21,7 +21,7 @@ const Admin = require('../models/adminModel')
         }
     }
 
-    //edit product
+    //edit
     const putMethod = async(req,res)=>{
         try{
             const {id} = req.params;
@@ -39,7 +39,7 @@ const Admin = require('../models/adminModel')
         }
     }
 
-    //delete product
+    //delete
     const deleteMethod = async(req,res)=>{
         try{
             const {id} = req.params;
