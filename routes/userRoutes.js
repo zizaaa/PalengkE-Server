@@ -1,5 +1,5 @@
 const express = require('express')
-const {getMethod,postMethod,putMethod,putMethodUser,deleteMethodUser} = require('../controllers/userController')
+const {getMethod,postMethod,putMethod,logIn,putMethodUser,deleteMethodUser} = require('../controllers/userController')
 const router = express.Router()
 const multer  = require('multer')
 
@@ -22,6 +22,9 @@ const multer  = require('multer')
         router.get('/users',getMethod)
     //add user
         router.post('/users',postMethod)
+
+    //check user
+        router.post('/api/users',logIn)
     //edit user img
         router.put('/user/img/:id',upload.single('img'),putMethod)
     //edit user
