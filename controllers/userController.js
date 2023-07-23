@@ -115,6 +115,37 @@ const jwt = require('jsonwebtoken');
     //         res.status(500).json({message:error.message})
     //     }
     // }
+    // const putMethodUser = async (req, res) => {
+    //         try {
+    //             const { id } = req.params;
+    //             const { password, ...userData } = req.body; // Exclude the password from the userData object
+        
+    //             // If the password is being updated, hash it
+    //             if (password) {
+    //                 userData.password = await bcrypt.hash(password, 10);
+    //             }
+        
+    //             // Find the existing user in the database
+    //             const existingUser = await Users.findById(id);
+    //             if (!existingUser) {
+    //                 return res.status(404).json({ message: `Cannot find any user with ID of ${id}` });
+    //             }
+        
+    //             // Merge the existing user data with the updated user data
+    //             const updatedUser = { ...existingUser._doc, ...userData };
+            
+    //             // Save the updated user data, and handle validation if necessary
+    //             Object.keys(userData).forEach((key) => {
+    //                 existingUser[key] = updatedUser[key];
+    //             });
+            
+    //             await existingUser.save();
+            
+    //             res.status(200).json(existingUser);
+    //         } catch (error) {
+    //             res.status(500).json({ message: error.message });
+    //         }
+    // };
     const putMethodUser = async (req, res) => {
         try {
           const { id } = req.params;
@@ -131,17 +162,13 @@ const jwt = require('jsonwebtoken');
             return res.status(404).json({ message: `Cannot find any user with ID of ${id}` });
           }
       
-          // Merge the existing user data with the updated user data
-          const updatedUser = { ...existingUser._doc, ...userData };
+          // Update the user data in the database
+          await Users.updateOne({ _id: id }, userData);
       
-          // Save the updated user data, and handle validation if necessary
-          Object.keys(userData).forEach((key) => {
-            existingUser[key] = updatedUser[key];
-          });
+          // Fetch the updated user data from the database
+          const updatedUser = await Users.findById(id);
       
-          await existingUser.save();
-      
-          res.status(200).json(existingUser);
+          res.status(200).json(updatedUser);
         } catch (error) {
           res.status(500).json({ message: error.message });
         }
