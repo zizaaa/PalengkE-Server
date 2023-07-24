@@ -9,6 +9,10 @@ const adminSchema = mongoose.Schema(
         netIncome:{
             type:Number,
             required:false
+        },
+        vouchers:{
+            type:Array,
+            required:false
         }
     },
     {
